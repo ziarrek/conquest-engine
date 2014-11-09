@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#prepare
+unzip player/bot.zip -d player
+unzip opponent/bot.zip -d opponent
+timeout=2000
+if (( $# > 1 ))
+then
+	timeout=$1
+fi
+
+#run
+java -cp bin main.RunGame 0 0 0 "python player/bot.py" "python opponent/bot.py" "output" $timeout 2>output/err.txt 1>output/out.txt
+
+#cleanup
+shopt -s extglob
+rm player/!(*.zip)
+rm opponent/!(*.zip)
