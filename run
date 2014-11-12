@@ -10,7 +10,7 @@ then
 fi
 
 #run
-java -cp bin main.RunGame 0 0 0 "python player/bot.py" "python opponent/bot.py" "output" $timeout 2>output/err.txt 1>output/out.txt
+java -cp bin main.RunGame 0 0 0 "python player/bot.py" "python opponent/bot.py" "output" $timeout 2>output/err.txt | tee output/out.txt
 
 #cleanup
 shopt -s extglob

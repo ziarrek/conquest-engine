@@ -1,0 +1,29 @@
+#!/bin/bash
+win=0
+tie=0
+lose=0
+
+if (( $# == 0 )); then
+	test_n=10
+else
+	test_n=$1
+fi
+
+for i in `seq 1 $test_n`
+do
+	result=$(./run)
+	check="${result: -7}"
+	if [[ "$check" == "player1" ]]
+	then
+		win=$(($win + 1))
+	elif [[ "$check" == "player2" ]]
+	then
+		lose=$(($lose + 1))
+	else
+		tie=$(($tie + 1))
+	fi
+done
+
+echo "Won $win times"
+echo "Lost $lose times"
+echo "Tied $tie times"

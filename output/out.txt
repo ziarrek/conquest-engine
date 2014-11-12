@@ -1,4 +1,0 @@
-starting game 0
-python player/bot.py
-python opponent/bot.py
-And the winner is...: player2
